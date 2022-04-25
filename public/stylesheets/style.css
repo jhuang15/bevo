@@ -1,19 +1,36 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background-color: #38D9C8;
 }
 
 a {
-  color: #00B7FF;
+  color: rgb(88, 88, 88);
+  font-size: 14px;
+  padding: 10px;
 }
 
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 34px;
+  height: 20px;
+  width: 90px;
+  border: solid 1px #38d9C8;
+  border-radius: 10px;
 }
 
 .login img {
-  height: 30px;
+  height: 20px;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  color: rgb(88, 88, 88);
+  padding: 10px;
+  
+
+
 }

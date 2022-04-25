@@ -19,13 +19,13 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/home', // from /movies to /home idk 
-    failureRedirect: '/home'
+    successRedirect: '/', // change to home later
+    failureRedirect: '/'
   }
 ));
 
 router.get('/logout', function(req, res) {
   req.logout();
-  res.redirect('/home');
+  res.redirect('/');
 });
 module.exports = router;
