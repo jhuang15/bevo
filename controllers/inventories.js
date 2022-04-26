@@ -17,19 +17,23 @@ function show(req, res) {
   Inventory.find({}, function(err, inventories) {
     res.render('inventories/show', { title: 'Show Items', inventories})
   })
+  //Inventory.findById(req.params.id).exec(function (err, inventories){
+  //  res.render('inventories', { title: 'Item Details', inventories});
+ // })
 }
 
 function newItem(req, res) {
-  res.render('inventories');
+  //res.render('inventories', { title: ' New Item' });
+  res.render('inventories', { title: ' New Item' });
 }
 
 function create(req, res) {
   var inventory = new Inventory(req.body);
   inventory.save(function(err) {
-    // one way to handle errors
-    if (err) return res.redirect('/inventories/new');
+    if (err) return console.log('Error'+inventory);
     console.log(inventory);
     //res.redirect(`/inventories/${inventory._id}`);
-    res.render('/inventories/show');
+    //res.redirect('/inventories/show');
+    res.redirect(`/inventories/${inventory._id}`);
   });
 }
