@@ -2,14 +2,16 @@
 
 <% if (user) { %>
   <section>
+    <% inventories.forEach(function(i) { %>
     <div>Brand: </div>
-    <div><%= inventories.brand %></div>
+    <div><%= i.brand %></div>
     <div>Type: </div>
-    <div><%= inventories.type %></div>
+    <div><%= i.type %></div>
     <div>Price: </div>
-    <div><%= inventories.price %></div>
+    <div><%= i.price %></div>
     <div>Quantity: </div>
-    <div><%= inventories.quantity %></div>
+    <div><%= i.quantity %></div>
+    <% }) %>
   </section>
   
   <form action="/inventories" method="POST">
@@ -21,7 +23,7 @@
     <input type="Number" name="price">
     <label>Quantity:</label>
     <input type="Number" name="quantity">
-    
+
     <input type="submit" value="Add Item">
   </form>
   <% } %>

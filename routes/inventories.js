@@ -10,4 +10,6 @@ router.get('/new', inventoriesCtrl.new);
 router.get('/:id', inventoriesCtrl.show);
 router.post('/', isLoggedIn, inventoriesCtrl.create);
 
+router.get('/', inventoriesCtrl.allInventory); //to view all inventory
+
 module.exports = router;

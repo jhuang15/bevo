@@ -4,8 +4,13 @@ module.exports = {
   index,
   show,
   new: newItem,
-  create
+  create,
+  allInventory
 };
+
+function allInventory(req,res) {
+
+}
 
 function index(req, res) {
   Inventory.find({}, function(err, inventories) {
