@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<% if (user) { %>
+  <form action="/inventories" method="POST">
+    <label>Brand:</label>
+    <input type="text" name="brand">
+    <label>Type:</label>
+    <input type="text" name="type">
+    <label>Price:</label>
+    <input type="Number" name="price">
+    <label>Quantity:</label>
+    <input type="Number" name="price">
+    <input type="submit" value="Add Item">
+  </form>
+  <% } %>
+
+  <% inventories.forEach(function(i) { %>
+  <section>
+    <div>Brand: </div>
+    <div><%= i.brand %></div>
+    <div>Type: </div>
+    <div><%= i.type %></div>
+    <div>Price: </div>
+    <div><%= i.price %></div>
+    <div>Quantity: </div>
+    <div><%= i.quantity %></div>
+  </section>
+  <% }); %>
+  
+  
+  
+<%- include('../partials/footer') %>
