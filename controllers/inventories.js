@@ -9,15 +9,18 @@ module.exports = {
 
 function index(req, res) {
   Inventory.find({}, function(err, inventories) {
-    res.render('inventories/', {title: 'All inventory', inventories});
+    res.render('inventories', {title: 'Inventory', inventories});
   });
 }
 
 function show(req, res) {
+  Inventory.find({}, function(err, inventories) {
+    res.render('inventories/show', { title: 'Show Items', inventories})
+  })
 }
 
 function newItem(req, res) {
-  res.render('inventories/new', { title: 'Add item' });
+  res.render('inventories');
 }
 
 function create(req, res) {
@@ -27,6 +30,6 @@ function create(req, res) {
     if (err) return res.redirect('/inventories/new');
     console.log(inventory);
     //res.redirect(`/inventories/${inventory._id}`);
-    res.render('inventories/');
+    res.render('/inventories/show');
   });
 }

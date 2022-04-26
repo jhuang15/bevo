@@ -1,6 +1,17 @@
 <%- include('../partials/header') %>
 
 <% if (user) { %>
+  <section>
+    <div>Brand: </div>
+    <div><%= inventories.brand %></div>
+    <div>Type: </div>
+    <div><%= inventories.type %></div>
+    <div>Price: </div>
+    <div><%= inventories.price %></div>
+    <div>Quantity: </div>
+    <div><%= inventories.quantity %></div>
+  </section>
+  
   <form action="/inventories" method="POST">
     <label>Brand:</label>
     <input type="text" name="brand">
@@ -13,20 +24,5 @@
     <input type="submit" value="Add Item">
   </form>
   <% } %>
-
-  <% inventories.forEach(function(i) { %>
-  <section>
-    <div>Brand: </div>
-    <div><%= i.brand %></div>
-    <div>Type: </div>
-    <div><%= i.type %></div>
-    <div>Price: </div>
-    <div><%= i.price %></div>
-    <div>Quantity: </div>
-    <div><%= i.quantity %></div>
-  </section>
-  <% }); %>
-  
-  
   
 <%- include('../partials/footer') %>
