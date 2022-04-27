@@ -19,7 +19,7 @@ const inventorySchema = new Schema({
   price: {
     type: Number
   },
-  notes: [notesSchema]
+  notes: []
 }, {
   // Mongoose will automatically add and maintain
   // a createdAt and updatedAt property on the docs

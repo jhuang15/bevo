@@ -8,29 +8,31 @@ module.exports = {
   delete: deleteItem
 };
 
-/*
+
 function deleteItem(req,res, next) {
-  Inventory.findOne({'inventories._id': req.params.id, 'inventories.user': req.user._id}).then(function(inventory) {
-    if (!inventory) return res.redirect('/inventories');
+  Inventory.findById({_id: req.params.id}, function(inventory) {
     inventory.remove(req.params.id);
     inventory.save().then(function() {
-      res.redirect(`/inventories/${inventory._id}`);
+      res.render('/inventories');
     }).catch(function(err) {
+      console.log(err);
       return next(err);
+      
+    });
+  });
+}
+/*
+function deleteItem(req, res, next) {
+  Inventory.findOne(req.params.id, function(err) {
+      Inventory.remove(req.params.id);
+      Inventory.save().then(function() {
+      // Deleted item, so must redirect to index
+      res.redirect('/inventories');
+
     });
   });
 }
 */
-function deleteItem(req, res) {
-  Inventories.findOneAndDelete(
-    // Ensue that the item was created by the logged in user
-    {_id: req.params.id, user: req.user._id}, function(err) {
-      // Deleted item, so must redirect to index
-      res.redirect('/inventories');
-    }
-  );
-}
-
 function index(req, res) {
   Inventory.find({}, function(err, inventories) {
     res.render('inventories', {title: 'Inventory', inventories});
@@ -38,8 +40,9 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Inventory.find({}, function(err, inventories) {
-    res.render('inventories/show', { title: 'Show Items', inventories})
+  Inventory.findById(req.params.id, function(err, inventory) {
+    console.log(inventory);
+    res.render('inventories/show', { title: 'Show Items', inventory})
   })
   //Inventory.findById(req.params.id).exec(function (err, inventories){
   //  res.render('inventories', { title: 'Item Details', inventories});
