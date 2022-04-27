@@ -1,5 +1,12 @@
 <%- include('../partials/header') %>
 
-<p>show.ejs</p>
+<p>Brand: </p>
+<p> <%= inventories.brand %> </p>
 
+<button>Edit</button>
+<% if (user) { %>
+  <form action="/inventories/<%= inventories._id %>?_method=DELETE" method="POST">
+    <button type="submit">delete</button>
+  </form>
+<% } %>
 <%- include('../partials/footer') %>

@@ -8,6 +8,7 @@ module.exports = {
   delete: deleteItem
 };
 
+/*
 function deleteItem(req,res, next) {
   Inventory.findOne({'inventories._id': req.params.id, 'inventories.user': req.user._id}).then(function(inventory) {
     if (!inventory) return res.redirect('/inventories');
@@ -18,6 +19,16 @@ function deleteItem(req,res, next) {
       return next(err);
     });
   });
+}
+*/
+function deleteItem(req, res) {
+  Inventories.findOneAndDelete(
+    // Ensue that the item was created by the logged in user
+    {_id: req.params.id, user: req.user._id}, function(err) {
+      // Deleted item, so must redirect to index
+      res.redirect('/inventories');
+    }
+  );
 }
 
 function index(req, res) {
