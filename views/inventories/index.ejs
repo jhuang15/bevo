@@ -1,31 +1,53 @@
 <%- include('../partials/header') %>
 
-<% if (user) { %>
-  <section>
-    <% inventories.forEach(function(i) { %>
-    <div>Brand: </div>
-    <div><%= i.brand %></div>
-    <div>Type: </div>
-    <div><%= i.type %></div>
-    <div>Price: </div>
-    <div><%= i.price %></div>
-    <div>Quantity: </div>
-    <div><%= i.quantity %></div>
-    <% }) %>
-  </section>
-  
-  <form action="/inventories" method="POST">
-    <label>Brand:</label>
-    <input type="text" name="brand">
-    <label>Type:</label>
-    <input type="text" name="type">
-    <label>Price:</label>
-    <input type="Number" name="price">
-    <label>Quantity:</label>
-    <input type="Number" name="quantity">
+  <% if (user) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Brand: </th>
+          <th>Type: </th>
+          <th>Price: </th>
+          <th>Quantity: </th>
+          <th>Notes: </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% inventories.forEach(function(i) { %>
+          <tr>
+            <td>
+              <a href="/inventories/<%= i._id %>"><%= i.brand %></a>
+            </td>
+            <td>
+              <a href="/inventories/<%= i._id %>"><%= i.type %></a>
+            </td>
+            <td>
+              <a href="/inventories/<%= i._id %>"><%= i.price %></a>
+            </td>
+            <td>
+              <a href="/inventories/<%= i._id %>"><%= i.quantity %></a>
+            </td>
+            <td>
+              <a href="/inventories/<%= i._id %>"><%= i.notes %></a>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
 
-    <input type="submit" value="Add Item">
-  </form>
-  <% } %>
-  
-<%- include('../partials/footer') %>
+    <form action="/inventories" method="POST">
+      <label>Brand:</label>
+      <input type="text" name="brand">
+      <label>Type:</label>
+      <input type="text" name="type">
+      <label>Price:</label>
+      <input type="Number" name="price">
+      <label>Quantity:</label>
+      <input type="Number" name="quantity">
+      <label>Notes:</label>
+      <input type="String" name="notes">
+      
+      <input type="submit" value="Add Item">
+    </form>
+    <% } %>
+
+      <%- include('../partials/footer') %>

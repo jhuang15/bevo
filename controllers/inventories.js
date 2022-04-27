@@ -5,11 +5,19 @@ module.exports = {
   show,
   new: newItem,
   create,
-  allInventory
+  delete: deleteItem
 };
 
-function allInventory(req,res) {
-
+function deleteItem(req,res, next) {
+  Inventory.findOne({'inventories._id': req.params.id, 'inventories.user': req.user._id}).then(function(inventory) {
+    if (!inventory) return res.redirect('/inventories');
+    inventory.remove(req.params.id);
+    inventory.save().then(function() {
+      res.redirect(`/inventories/${inventory._id}`);
+    }).catch(function(err) {
+      return next(err);
+    });
+  });
 }
 
 function index(req, res) {

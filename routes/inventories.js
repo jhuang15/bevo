@@ -9,7 +9,6 @@ router.get('/', inventoriesCtrl.index);
 router.get('/new', inventoriesCtrl.new);
 router.get('/:id', inventoriesCtrl.show);
 router.post('/', isLoggedIn, inventoriesCtrl.create);
-
-router.get('/', inventoriesCtrl.allInventory); //to view all inventory
+router.delete('/inventories/:id', inventoriesCtrl.delete);
 
 module.exports = router;
