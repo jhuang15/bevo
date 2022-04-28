@@ -1,6 +1,6 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #38D9C8;
+  background-color: #662FED;
 }
 
 a {
@@ -16,7 +16,7 @@ a {
   align-items: center;
   height: 20px;
   width: 90px;
-  border: solid 1px #38d9C8;
+  border: solid 1px #662FED;
   border-radius: 10px;
 }
 
@@ -45,20 +45,21 @@ td, th {
 }
 
 tr:nth-child(even){
-  background-color: #f2f2f2;
+  background-color: #4F25BA;
 }
 tr:hover {
   background-color: #ddd;
+  color: black;
 }
 th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #2F166E;
   color: white;
 }
 td > a {
-  color: black;
+  color: white;
   font-size: 16px;
   
 }

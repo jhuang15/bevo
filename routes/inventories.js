@@ -9,6 +9,8 @@ router.get('/', inventoriesCtrl.index);
 router.get('/new', inventoriesCtrl.new);
 router.get('/:id', inventoriesCtrl.show);
 router.post('/', isLoggedIn, inventoriesCtrl.create);
-router.delete('/inventories/:id', inventoriesCtrl.delete);
+//router.delete('/inventories/:id', inventoriesCtrl.delete);
+router.delete('/:id', inventoriesCtrl.delete);
+router.put('/:id', inventoriesCtrl.update)
 
 module.exports = router;

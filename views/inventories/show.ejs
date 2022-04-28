@@ -1,7 +1,18 @@
 <%- include('../partials/header') %>
 
-<p>Brand: </p>
-<p> <%= inventory.brand %> </p>
+<form action="/inventories/<%= inventory._id %>?_method=PUT" method="POST">
+  <label>Brand:</label>
+  <input type="text" name="brand" value="<%= inventory.brand %>">
+  <label>Type:</label>
+  <input type="text" name="type" value="<%= inventory.type %>">
+  <label>Price:</label>
+  <input type="Number" name="price" value="<%= inventory.price %>">
+  <label>Quantity:</label>
+  <input type="Number" name="quantity" value="<%= inventory.quantity %>">
+  <label>Notes:</label>
+  <input type="String" name="notes" value="<%= inventory.notes %>">
+  <input type="submit" value="Update">
+</form>
 
 <button>Edit</button>
 <% if (user) { %>
