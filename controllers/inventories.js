@@ -10,12 +10,11 @@ module.exports = {
 };
 
 function update (req, res) {
-  var inventory = new Inventory(req.body);
   //console.log("Update:"+req.params.id);
 
   // using find, findById, findOne makes app crash, 
   //findbyidandupdate wont crash but wont do anything but pending
-  inventory.findByIdAndUpdate({'inventory._id': req.body.id}, function (err) {
+  Inventory.findByIdAndUpdate(req.params.id, req.body.id, {new:true}, function (err, inventory) {
     console.log('Error: '+err);
     inventory.brand = req.body.brand;
     //Inventory.id(req.params.id) = req.parms.id;
@@ -24,28 +23,15 @@ function update (req, res) {
   });
   }); 
 }
-/* 
-function update (req, res) {
-  console.log("Update:"+req.params.id);
-  Inventory.findOneAndUpdate(req.params.id, function (err, inventory) {
-    console.log(err);
-    Inventory.id(req.params.id) = req.parms.id;
-    Inventory.save(function(err) {
-      res.redirect(`/inventories/${inventory._id}`);
-  });
-  });
-}
-*/
+
 function deleteItem(req, res, next) {
   //only findByIdAndDelete will work
   Inventory.findByIdAndDelete(req.params.id, function (err) {
-    Inventory.remove(req.params.id);
-     Inventory.save().then(function () {
+    //inventory.remove(req.params.id);
+     //inventory.save().then(function () {
       res.redirect('/inventories');
-    }).catch(function(err) {
-      return next(err);
-    });
-  });
+    })
+  //});
 }
 
 function index(req, res) {
