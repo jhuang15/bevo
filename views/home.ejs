@@ -1,8 +1,23 @@
 <%- include('./partials/header') %>
 
+<% if (user) { %>
   <p> When you login the first time it'll probably say user not found 
     but just refresh localhost and login again. idk why lmk if you know how to fix it \(T.T)/ </p>
-  
-  
+
+<% } else { %>
+  <article class="user-false">
+    <div id="img-div">
+      <img src="https://i.imgur.com/PJqArGF.jpg" atl="smoked cocktail">
+    </div>
+
+    <div id="text-div">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet vestibulum sem, et consequat nisl. Duis diam arcu, tincidunt vitae massa sed, interdum auctor neque. Morbi at neque at eros semper blandit. Donec sed elementum leo. Quisque a magna lobortis, porta eros laoreet, porttitor nisi. Pellentesque condimentum eleifend tellus suscipit interdum. Duis convallis mi eget neque rutrum, congue consequat justo ultrices.
+
+        Pellentesque nunc augue, dignissim sit amet sem id, egestas gravida diam. Aenean ac tristique tellus. Phasellus et vulputate nulla. Morbi tellus sapien, euismod sit amet arcu non, blandit pulvinar ex. Fusce rutrum turpis quam, vel venenatis est congue a. Praesent non metus ac urna scelerisque maximus. Fusce ac dignissim risus. In ac malesuada turpis.</p>
+      <br>
+        <a class="login-google">Login with  &nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    </div>
+  </article>
+  <% } %>
   
 <%- include('./partials/footer') %>

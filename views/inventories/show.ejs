@@ -2,9 +2,9 @@
 
 <form action="/inventories/<%= inventory._id %>?_method=PUT" method="POST">
   <label>Brand:</label>
-  <input type="text" name="brand" value="<%= inventory.brand %>">
+  <input type="text" name="brand" value="<%= inventory.brand %>" disabled>
   <label>Type:</label>
-  <input type="text" name="type" value="<%= inventory.type %>">
+  <input type="text" name="type" value="<%= inventory.type %>" disabled>
   <label>Price:</label>
   <input type="Number" name="price" value="<%= inventory.price %>">
   <label>Quantity:</label>
@@ -14,10 +14,10 @@
   <input type="submit" value="Update">
 </form>
 
-<button>Edit</button>
 <% if (user) { %>
   <form action="/inventories/<%= inventory._id %>?_method=DELETE" method="POST">
     <button type="submit">delete</button>
   </form>
+
 <% } %>
 <%- include('../partials/footer') %>

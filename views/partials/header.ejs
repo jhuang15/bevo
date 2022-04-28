@@ -10,13 +10,12 @@
   </head>
     <nav>
       <h1><%= title %></h1>
-      <p>Welcome to <%= title %></p>
       <% if (user) { %>
         <a href="/" >Dashboard</a>
         <a href="/inventories" >Inventory</a>
         <a href="/logout">Logout</a>
       <% } else { %>
-        <a href="/auth/google" class="login">Login &nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <a href="/auth/google">Login</a>
       <% } %>
     </nav>
 

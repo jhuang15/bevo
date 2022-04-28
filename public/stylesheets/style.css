@@ -1,27 +1,20 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #662FED;
+  background-color: black;
+  margin: 0;
 }
 
-a {
+nav > a {
   color: rgb(88, 88, 88);
   font-size: 14px;
   padding: 10px;
   text-decoration: none;
-}
-
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20px;
-  width: 90px;
-  border: solid 1px #662FED;
+  border: solid 1px #C64A00;
   border-radius: 10px;
 }
-
-.login img {
-  height: 20px;
+nav > a:hover {
+  background-color: #C64A00;
+  color: white;
 }
 
 nav{
@@ -31,12 +24,14 @@ nav{
   background-color: white;
   color: rgb(88, 88, 88);
   padding: 10px;
+  border-radius: 25px;
+  margin: 3vmin 10vmin;
 }
 
 table {
   border-collapse: collapse;
-  width: 100%;
-  
+  width: 89%;
+  margin: 4vmin 10vmin;
 }
 
 td, th {
@@ -45,7 +40,7 @@ td, th {
 }
 
 tr:nth-child(even){
-  background-color: #4F25BA;
+  background-color: #C19240;
 }
 tr:hover {
   background-color: #ddd;
@@ -62,5 +57,61 @@ td > a {
   color: white;
   font-size: 16px;
   
+}
+input {
+  padding: 8px;
+}
+label {
+  padding: 8px;
+  color: white;
+}
+
+.user-false{
+  display: flex;
+}
+
+#img-div {
+  width: 70vmin;
+}
+
+img {
+  padding: 4px;
+  width: 55vmin;
+  height: 75vmin;
+  border-radius: 25px;
+  margin: 1vmin 10vmin;
+}
+
+#text-div {
+  background-color: white;
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  width: 70vmin;
+  margin: 1vmin 10vmin;
+}
+.login-google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vmin;
+  width: 15vmin;
+  background-color: #C64A00;
+  color: white;
+  border-radius: 10px;
+  padding: 1vmin;
+}
+.login-google:hover {
+  border: solid 2px #C64A00;
+  color: black;
+  background-color: white;
+}
+
+.login-google img {
+  height: 20px;
+  width: 20px;
+  margin: 0px;
 }
 
