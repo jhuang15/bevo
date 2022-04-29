@@ -26,11 +26,12 @@
         </select>
         <br>
         <button type="submit" value="Update">Update</button>
-        <form action="/inventories/<%= inventory._id %>?_method=DELETE" method="POST">
-          <button type="submit" value="Delete">Delete</button>
-        </form>
+        
       </form>
     </div>
+    <form action="/inventories/<%= inventory._id %>?_method=DELETE" method="POST">
+      <button type="submit" value="Delete">Delete</button>
+    </form>
 
       <h2>Notes</h2>
       <form class="add-notes-form" method="POST" action="/inventories/<%= inventory._id %>">
