@@ -1,77 +1,83 @@
 <%- include('../partials/header') %>
+  <% if (user) { %>
+    <div class="show-form">
+      <form action="/inventories/<%= inventory._id %>?_method=PUT" method="POST">
+        <label>Brand:</label>
+        <input type="text" name="brand" value="<%= inventory.brand %>" disabled>
+        <label>Type:</label>
+        <input type="text" name="type" value="<%= inventory.type %>" disabled>
+        <label>Price:</label>
+        <input type="Number" name="price" value="<%= inventory.price %>">
+        <label>Quantity:</label>
+        <input type="Number" name="quantity" value="<%= inventory.quantity %>">
+        <label>Unit:</label>
+        <select name="unit">
+          <option value="<%= inventory.unit %>">
+            <%= inventory.unit %>
+          </option>
+          <option value="oz">oz</option>
+          <option value="bottle">bottle</option>
+          <option value="case">case</option>
+          <option value="50ml">50ml</option>
+          <option value="100ml">100ml</option>
+          <option value="375ml">375ml</option>
+          <option value="750ml">750ml</option>
+          <option value="Other">Other</option>
+        </select>
+        <br>
+        <button type="submit" value="Update">Update</button>
+        <form action="/inventories/<%= inventory._id %>?_method=DELETE" method="POST">
+          <button type="submit" value="Delete">Delete</button>
+        </form>
+      </form>
+    </div>
 
-<form action="/inventories/<%= inventory._id %>?_method=PUT" method="POST">
-  <label>Brand:</label>
-  <input type="text" name="brand" value="<%= inventory.brand %>" disabled>
-  <label>Type:</label>
-  <input type="text" name="type" value="<%= inventory.type %>" disabled>
-  <label>Price:</label>
-  <input type="Number" name="price" value="<%= inventory.price %>">
-  <label>Quantity:</label>
-  <input type="Number" name="quantity" value="<%= inventory.quantity %>">
-  <label>Unit:</label>
-    <select name="unit">
-      <option value="<%= inventory.unit %>"><%= inventory.unit %></option>
-      <option value="oz">oz</option>
-      <option value="bottle">bottle</option>
-      <option value="case">case</option>
-      <option value="50ml">50ml</option>
-      <option value="100ml">100ml</option>
-      <option value="375ml">375ml</option>
-      <option value="750ml">750ml</option>
-      <option value="Other">Other</option>
-    </select>
-  <input type="submit" value="Update">
-</form>
-
-<% if (user) { %>
-  <form action="/inventories/<%= inventory._id %>?_method=DELETE" method="POST">
-    <button type="submit">delete</button>
-  </form>
-<% } %>
-
-<br><br>
-<h2>Notes</h2>
-<% if (user) { %>
-  <form id="add-notes-form" method="POST" action="/inventories/<%= inventory._id %>">
-    <label>Notes:</label>
-    <textarea name="content"></textarea>
-    <input type="submit" value="Add Review">
-  </form>
-<% } %>
-
-<% if (inventory.notes.length) { %>
-  <table>
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Date</th>
-        <th>Review</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% inventory.notes.forEach(function(n) { %>
-        <tr>
-          <td class="note-user"><%= n.userName %></td>
-          <td><%= n.createdAt.toLocaleDateString() %></td>
-          <td><%= n.content %></td>
-          
-            <% if (user && user._id.equals(n.user)) { %>
-              <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
-                <button type="submit">Remove</button>
-              </form>
-            <% } %>
-        </tr>
-      <% }); %>
-      <tr>
-      </tr>
-    </tbody>
-  </table>
-<% } else { %>
-  <h5>No Notes Yet</h5>
-<% } %>
+      <h2>Notes</h2>
+      <form class="add-notes-form" method="POST" action="/inventories/<%= inventory._id %>">
+        <label>Notes:</label>
+        <textarea name="content"></textarea>
+        <button type="submit" value="Add Note">Add Note</button>
+      </form>
 
 
+      <% if (inventory.notes.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Date</th>
+              <th>Review</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% inventory.notes.forEach(function(n) { %>
+              <tr>
+                <td class="note-user">
+                  <%= n.userName %>
+                </td>
+                <td>
+                  <%= n.createdAt.toLocaleDateString() %>
+                </td>
+                <td>
+                  <%= n.content %>
+                </td>
+
+                <% if (user && user._id.equals(n.user)) { %>
+                  <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Remove</button>
+                  </form>
+                  <% } %>
+              </tr>
+              <% }); %>
+                <tr>
+                </tr>
+          </tbody>
+        </table>
+        <% } else { %>
+          <h5>No Notes Yet</h5>
+          <% } %>
+
+    <% }%>
 
 
-<%- include('../partials/footer') %>
+      <%- include('../partials/footer') %>

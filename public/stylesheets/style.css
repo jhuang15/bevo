@@ -111,13 +111,41 @@ select {
 
 }
 
+button {
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  border: solid 2px #B03400;
+  font-size: 14px;
+  padding: 4px;
+  border-radius: 10px;
+  width: 15vmin;
+  margin: 3vmin;
+}
+button:hover {
+  background-color: #B03400;
+  color: white;
+}
+
 .create-form {
+  margin-left: 20vmin;
+}
+.show-form {
   margin-left: 20vmin;
 }
 .user-false{
   display: flex;
 }
-
+h2 {
+  margin-left: 10vmin;
+}
+.add-notes-form {
+  margin-left: 10vmin;
+  display: flex;
+  align-items: center;
+}
 #img-div {
   width: 70vmin;
 }
