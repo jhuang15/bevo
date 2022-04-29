@@ -1,7 +1,10 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: black;
+  background-color: white;
   margin: 0;
+}
+.home {
+  background-color: black;
 }
 
 nav > a {
@@ -9,29 +12,32 @@ nav > a {
   font-size: 14px;
   padding: 10px;
   text-decoration: none;
-  border: solid 1px #C64A00;
+  border: solid 1px white;
   border-radius: 10px;
+  background-color: #F4AF56;
 }
 nav > a:hover {
-  background-color: #C64A00;
-  color: white;
+  background-color: #FBE0BC;
+  color: rgb(88, 88, 88);
 }
 
 nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
+  background-color: #F4AF56;
   color: rgb(88, 88, 88);
   padding: 10px;
   border-radius: 25px;
   margin: 3vmin 10vmin;
+
 }
 
 table {
   border-collapse: collapse;
   width: 89%;
   margin: 4vmin 10vmin;
+  color: black;
 }
 
 td, th {
@@ -40,22 +46,21 @@ td, th {
 }
 
 tr:nth-child(even){
-  background-color: #C19240;
+  background-color: #FBE0BC;
 }
 tr:hover {
   background-color: #ddd;
-  color: black;
 }
 th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #2F166E;
-  color: white;
+  background-color: #F4AF56;
 }
 td > a {
-  color: white;
   font-size: 16px;
+  color: black;
+  text-decoration: none;
   
 }
 input {
@@ -63,7 +68,7 @@ input {
 }
 label {
   padding: 8px;
-  color: white;
+  color: black;
 }
 
 .user-false{
@@ -98,13 +103,13 @@ img {
   align-items: center;
   height: 5vmin;
   width: 15vmin;
-  background-color: #C64A00;
+  background-color: #F4AF56;
   color: white;
   border-radius: 10px;
   padding: 1vmin;
 }
 .login-google:hover {
-  border: solid 2px #C64A00;
+  border: solid 2px #F4AF56;
   color: black;
   background-color: white;
 }

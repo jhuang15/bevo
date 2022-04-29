@@ -11,8 +11,10 @@ module.exports = {
 
 function update (req, res) {
   Inventory.findByIdAndUpdate(req.params.id, req.body.id, {new:true}, function (err, inventory) {
-    console.log('Error: '+err);
-    inventory.brand = req.body.brand;
+    console.log(err);
+    inventory.price = req.body.price;
+    inventory.quantity = req.body.quantity;
+    inventory.notes = req.body.notes;
     inventory.save(function(err) {
       res.redirect(`/inventories/${inventory._id}`);
     });
@@ -22,7 +24,7 @@ function update (req, res) {
 function deleteItem(req, res) {
   Inventory.findByIdAndDelete(req.params.id, function (err) {
       res.redirect('/inventories');
-  })
+  });
 }
 
 function index(req, res) {
@@ -35,7 +37,7 @@ function show(req, res) {
   Inventory.findById(req.params.id, function(err, inventory) {
     console.log(inventory);
     res.render('inventories/show', { title: 'Show Items', inventory})
-  })
+  });
 }
 
 function create(req, res) {
