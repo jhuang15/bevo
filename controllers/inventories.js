@@ -36,7 +36,7 @@ function index(req, res) {
 function show(req, res) {
   Inventory.findById(req.params.id, function(err, inventory) {
     console.log(inventory);
-    res.render('inventories/show', { title: 'Show Items', inventory})
+    res.render('inventories/show', { title: inventory.brand, inventory})
   });
 }
 
