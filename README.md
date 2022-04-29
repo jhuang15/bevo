@@ -12,7 +12,9 @@
 <p>An inventory tracker for a bar/restaurant. Performs full CRUD
 </p>
 <h3>&#129346; Screenshots</h3>
-<img src="">
+<img src="https://i.imgur.com/kCrXWEt.png">
+<img src="https://i.imgur.com/WNjazcN.png">
+<img src="https://i.imgur.com/ZQBzaqn.png">
 
 <h3>&#129346; Technologies Used</h3>
 <div>
