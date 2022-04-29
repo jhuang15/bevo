@@ -9,6 +9,18 @@
   <input type="Number" name="price" value="<%= inventory.price %>">
   <label>Quantity:</label>
   <input type="Number" name="quantity" value="<%= inventory.quantity %>">
+  <label>Unit:</label>
+    <select name="unit">
+      <option value="<%= inventory.unit %>"><%= inventory.unit %></option>
+      <option value="oz">oz</option>
+      <option value="bottle">bottle</option>
+      <option value="case">case</option>
+      <option value="50ml">50ml</option>
+      <option value="100ml">100ml</option>
+      <option value="375ml">375ml</option>
+      <option value="750ml">750ml</option>
+      <option value="Other">Other</option>
+    </select>
   <input type="submit" value="Update">
 </form>
 
@@ -41,19 +53,17 @@
       <% inventory.notes.forEach(function(n) { %>
         <tr>
           <td class="note-user"><%= n.userName %></td>
-         
+          <td><%= n.createdAt.toLocaleDateString() %></td>
           <td><%= n.content %></td>
-          <td>
+          
             <% if (user && user._id.equals(n.user)) { %>
               <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
                 <button type="submit">Remove</button>
               </form>
             <% } %>
-          </td>
         </tr>
       <% }); %>
       <tr>
-        <td colspan="3"></td>
       </tr>
     </tbody>
   </table>

@@ -27,6 +27,9 @@ const inventorySchema = new Schema({
   price: {
     type: Number
   },
+  unit: {
+    type: String
+  },
   notes: [notesSchema]
 }, {
   // Mongoose will automatically add and maintain

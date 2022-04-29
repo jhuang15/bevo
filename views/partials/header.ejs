@@ -12,11 +12,11 @@
     <nav>
       <h1><%= title %></h1>
       <% if (user) { %>
-        <a href="/" >Dashboard</a>
-        <a href="/inventories" >Inventory</a>
-        <a href="/logout">Logout</a>
-      <% } else { %>
-        <a href="/auth/google">Login</a>
+          <a href="/" >Dashboard</a>
+          <a href="/inventories" >Inventory</a>
+          <a href="/logout">Logout</a>
+        <% } else { %>
+          <a href="/auth/google">Login</a>
       <% } %>
     </nav>
 

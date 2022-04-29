@@ -1,6 +1,41 @@
 <%- include('../partials/header') %>
 
   <% if (user) { %>
+    <div class="create-form">
+      <form action="/inventories" method="POST">
+        <label>Brand:</label>
+        <input type="text" name="brand">
+        <label>Type:</label>
+        <select name="type">
+          <option value="Vodka">Vodka</option>
+          <option value="Gin">Gin</option>
+          <option value="Tequila">Tequila</option>
+          <option value="Whiskey">Whiskey</option>
+          <option value="Rye">Rye</option>
+          <option value="Bourbon">Bourbon</option>
+          <option value="Cognac">Cognac</option>
+          <option value="Other">Other</option>
+        </select>
+        <label>Price:</label>
+        <input type="Number" name="price">
+        <label>Quantity:</label>
+        <input type="Number" name="quantity">
+        <label>Unit:</label>
+        <select name="unit">
+          <option value="oz">oz</option>
+          <option value="bottle">bottle</option>
+          <option value="case">case</option>
+          <option value="50ml">50ml</option>
+          <option value="100ml">100ml</option>
+          <option value="375ml">375ml</option>
+          <option value="750ml">750ml</option>
+          <option value="Other">Other</option>
+        </select>
+        
+        <input id="add" type="submit" value="Add Item">
+      </form>
+      </div>
+      
     <table>
       <thead>
         <tr>
@@ -8,40 +43,23 @@
           <th>Type: </th>
           <th>Price: </th>
           <th>Quantity: </th>
+          <th>Unit: </th>
         </tr>
       </thead>
       <tbody>
         <% inventories.forEach(function(i) { %>
           <tr>
-            <td>
-              <a href="/inventories/<%= i._id %>"><%= i.brand %></a>
-            </td>
-            <td>
-              <a href="/inventories/<%= i._id %>"><%= i.type %></a>
-            </td>
-            <td>
-              <a href="/inventories/<%= i._id %>"><%= i.price %></a>
-            </td>
-            <td>
-              <a href="/inventories/<%= i._id %>"><%= i.quantity %></a>
-            </td>
+            <td><a href="/inventories/<%= i._id %>"><%= i.brand %></a></td>
+            <td><a href="/inventories/<%= i._id %>"><%= i.type %></a></td>
+            <td><a href="/inventories/<%= i._id %>"><%= i.price %></a></td>
+            <td><a href="/inventories/<%= i._id %>"><%= i.quantity %></a></td>
+            <td><a href="/inventories/<%= i._id %>"><%= i.unit %></a></td>
           </tr>
           <% }) %>
       </tbody>
     </table>
 
-    <form action="/inventories" method="POST">
-      <label>Brand:</label>
-      <input type="text" name="brand">
-      <label>Type:</label>
-      <input type="text" name="type">
-      <label>Price:</label>
-      <input type="Number" name="price">
-      <label>Quantity:</label>
-      <input type="Number" name="quantity">
-      
-      <input type="submit" value="Add Item">
-    </form>
+    
     <% } %>
 
       <%- include('../partials/footer') %>
