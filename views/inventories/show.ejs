@@ -26,59 +26,59 @@
         </select>
         <br>
         <button type="submit" value="Update">Update</button>
-        
+
       </form>
     </div>
     <form action="/inventories/<%= inventory._id %>?_method=DELETE" method="POST">
       <button type="submit" value="Delete">Delete</button>
     </form>
 
-      <h2>Notes</h2>
-      <form class="add-notes-form" method="POST" action="/inventories/<%= inventory._id %>">
-        <label>Notes:</label>
-        <textarea name="content"></textarea>
-        <button type="submit" value="Add Note">Add Note</button>
-      </form>
+    <h2>Notes</h2>
+    <form class="add-notes-form" method="POST" action="/inventories/<%= inventory._id %>">
+      <label>Notes:</label>
+      <textarea name="content"></textarea>
+      <button type="submit" value="Add Note">Add Note</button>
+    </form>
 
 
-      <% if (inventory.notes.length) { %>
-        <table>
-          <thead>
+    <% if (inventory.notes.length) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Date</th>
+            <th>Review</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% inventory.notes.forEach(function(n) { %>
             <tr>
-              <th>User</th>
-              <th>Date</th>
-              <th>Review</th>
+              <td class="note-user">
+                <%= n.userName %>
+              </td>
+              <td>
+                <%= n.createdAt.toLocaleDateString() %>
+              </td>
+              <td>
+                <%= n.content %>
+              </td>
+
+              <% if (user && user._id.equals(n.user)) { %>
+                <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
+                  <button type="submit">Remove</button>
+                </form>
+                <% } %>
             </tr>
-          </thead>
-          <tbody>
-            <% inventory.notes.forEach(function(n) { %>
+            <% }); %>
               <tr>
-                <td class="note-user">
-                  <%= n.userName %>
-                </td>
-                <td>
-                  <%= n.createdAt.toLocaleDateString() %>
-                </td>
-                <td>
-                  <%= n.content %>
-                </td>
-
-                <% if (user && user._id.equals(n.user)) { %>
-                  <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Remove</button>
-                  </form>
-                  <% } %>
               </tr>
-              <% }); %>
-                <tr>
-                </tr>
-          </tbody>
-        </table>
-        <% } else { %>
-          <h5>No Notes Yet</h5>
-          <% } %>
+        </tbody>
+      </table>
+      <% } else { %>
+        <h5>No Notes Yet</h5>
+        <% } %>
 
-    <% }%>
+          <% }%>
 
 
-      <%- include('../partials/footer') %>
+            <%- include('../partials/footer') %>

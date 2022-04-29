@@ -31,11 +31,11 @@
           <option value="750ml">750ml</option>
           <option value="Other">Other</option>
         </select>
-        
+
         <input id="add" type="submit" value="Add Item">
       </form>
-      </div>
-      
+    </div>
+
     <table>
       <thead>
         <tr>
@@ -49,17 +49,27 @@
       <tbody>
         <% inventories.forEach(function(i) { %>
           <tr>
-            <td><a href="/inventories/<%= i._id %>"><%= i.brand %></a></td>
-            <td><a href="/inventories/<%= i._id %>"><%= i.type %></a></td>
-            <td><a href="/inventories/<%= i._id %>"><%= i.price %></a></td>
-            <td><a href="/inventories/<%= i._id %>"><%= i.quantity %></a></td>
-            <td><a href="/inventories/<%= i._id %>"><%= i.unit %></a></td>
+            <td><a href="/inventories/<%= i._id %>">
+                <%= i.brand %>
+              </a></td>
+            <td><a href="/inventories/<%= i._id %>">
+                <%= i.type %>
+              </a></td>
+            <td><a href="/inventories/<%= i._id %>">
+                <%= i.price %>
+              </a></td>
+            <td><a href="/inventories/<%= i._id %>">
+                <%= i.quantity %>
+              </a></td>
+            <td><a href="/inventories/<%= i._id %>">
+                <%= i.unit %>
+              </a></td>
           </tr>
           <% }) %>
       </tbody>
     </table>
 
-    
+
     <% } %>
 
       <%- include('../partials/footer') %>
