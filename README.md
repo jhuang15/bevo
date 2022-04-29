@@ -15,6 +15,7 @@
 <img src="">
 
 <h3>&#129346; Technologies Used</h3>
+<div>
 <img src="https://img.shields.io/badge/-Mongoose_ODM-333?style=flat&logo=mongodb">
 <img src="https://img.shields.io/badge/-Node.js-333?style=flat&logo=node.js">
 <img src="https://img.shields.io/badge/-Express-333?style=flat&logo=express">
@@ -28,6 +29,7 @@
 <img src="https://img.shields.io/badge/-Git-333?style=flat&logo=git">
 <img src="https://img.shields.io/badge/-GitHub-333?style=flat&logo=github">
 <img src="https://img.shields.io/badge/-VS_Code-333?style=flat&logo=visualstudio"> 
+</div>
 
 <h3>&#129346; Getting Started</h3>
 <h5>Heroku Link: https://bevo-sei.herokuapp.com/</h5>
