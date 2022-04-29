@@ -9,8 +9,6 @@
   <input type="Number" name="price" value="<%= inventory.price %>">
   <label>Quantity:</label>
   <input type="Number" name="quantity" value="<%= inventory.quantity %>">
-  <label>Notes:</label>
-  <input type="String" name="notes" value="<%= inventory.notes %>">
   <input type="submit" value="Update">
 </form>
 
@@ -18,6 +16,52 @@
   <form action="/inventories/<%= inventory._id %>?_method=DELETE" method="POST">
     <button type="submit">delete</button>
   </form>
-
 <% } %>
+
+<br><br>
+<h2>Notes</h2>
+<% if (user) { %>
+  <form id="add-notes-form" method="POST" action="/inventories/<%= inventory._id %>">
+    <label>Notes:</label>
+    <textarea name="content"></textarea>
+    <input type="submit" value="Add Review">
+  </form>
+<% } %>
+
+<% if (inventory.notes.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% inventory.notes.forEach(function(n) { %>
+        <tr>
+          <td class="note-user"><%= n.userName %></td>
+         
+          <td><%= n.content %></td>
+          <td>
+            <% if (user && user._id.equals(n.user)) { %>
+              <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
+                <button type="submit">Remove</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }); %>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Notes Yet</h5>
+<% } %>
+
+
+
+
 <%- include('../partials/footer') %>

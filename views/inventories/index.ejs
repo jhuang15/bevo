@@ -8,7 +8,6 @@
           <th>Type: </th>
           <th>Price: </th>
           <th>Quantity: </th>
-          <th>Notes: </th>
         </tr>
       </thead>
       <tbody>
@@ -26,9 +25,6 @@
             <td>
               <a href="/inventories/<%= i._id %>"><%= i.quantity %></a>
             </td>
-            <td>
-              <a href="/inventories/<%= i._id %>"><%= i.notes %></a>
-            </td>
           </tr>
           <% }) %>
       </tbody>
@@ -43,8 +39,6 @@
       <input type="Number" name="price">
       <label>Quantity:</label>
       <input type="Number" name="quantity">
-      <label>Notes:</label>
-      <input type="String" name="notes">
       
       <input type="submit" value="Add Item">
     </form>
